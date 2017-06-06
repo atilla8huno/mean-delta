@@ -30,7 +30,14 @@ router.put('/', (req, res, next) => {
 });
 
 router.delete('/', (req, res, next) => {
-    res.status(200).json({ nome: "Átilla" });
+    let _id = req.param('_id');
+    LocalizacaoService
+        .excluir(_id)
+        .then((docs) => {
+            res.status(200).json(docs);
+        }, (err) => {
+            res.status(500).json(err);
+        });
 });
 
 module.exports = router;

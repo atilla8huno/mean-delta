@@ -10,6 +10,8 @@
 
 # IDEs and editors
 /.idea
+/host-map-api/.idea
+/host-map-web/.idea
 .project
 .classpath
 .c9/

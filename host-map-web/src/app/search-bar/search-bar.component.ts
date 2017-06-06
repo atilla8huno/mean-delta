@@ -1,4 +1,4 @@
-import {Component, OnInit, EventEmitter, Output} from '@angular/core';
+import {Component, OnInit, EventEmitter, Output, Input} from '@angular/core';
 import {HttpClientService} from "../http-client.service";
 import {Localizacao} from "../model/localizacao.model";
 
@@ -9,6 +9,7 @@ import {Localizacao} from "../model/localizacao.model";
 })
 export class SearchBarComponent implements OnInit {
 
+    @Input()
     dominio: String;
 
     @Output()
@@ -18,6 +19,9 @@ export class SearchBarComponent implements OnInit {
     }
 
     ngOnInit() {
+        if (this.dominio) {
+            this.pesquisar();
+        }
     }
 
     pesquisar(): void {
