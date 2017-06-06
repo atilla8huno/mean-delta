@@ -19,6 +19,7 @@ export const rotas: Routes = [
     {path: '', redirectTo: '/map', pathMatch: 'full'},
     {path: 'map', component: MapPageComponent},
     {path: 'map/:dominio', component: MapPageComponent},
+    {path: 'map/:dominio/:log', component: MapPageComponent},
     {path: 'historico', component: HistoricoPageComponent}
 ];
 

@@ -11,7 +11,7 @@ import {ActivatedRoute} from "@angular/router";
 export class MapPageComponent implements OnInit {
 
     localizacao: any = new Localizacao();
-    dominio: String;
+    log: boolean = false;
 
     constructor(private httpClient: HttpClientService,
                 private _activatedRoute: ActivatedRoute) {
@@ -19,18 +19,20 @@ export class MapPageComponent implements OnInit {
 
     ngOnInit() {
         this._activatedRoute.params.subscribe((params) => {
-            this.dominio = params['dominio'];
+            this.log = params['log'] || false;
         });
     }
 
     exibirLocalizacao(localizacao: Localizacao): void {
         this.localizacao = localizacao;
 
-        this.httpClient
-            .post('http://localhost:3000/api/localizacao', localizacao)
-            .subscribe((localizacao) => {
-                console.log(localizacao);
-            });
+        if (!this.log) {
+            this.httpClient
+                .post('http://localhost:3000/api/localizacao', localizacao)
+                .subscribe((localizacao) => {
+                    console.log(localizacao);
+                });
+        }
     }
 
 }

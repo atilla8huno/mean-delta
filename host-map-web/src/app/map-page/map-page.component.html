@@ -1,6 +1,5 @@
 <div class="container">
-    <fd-search-bar [dominio]="dominio"
-                   (localizacao)="exibirLocalizacao($event)">
+    <fd-search-bar (localizacao)="exibirLocalizacao($event)">
     </fd-search-bar>
 
     <fd-host-panel [localizacao]="localizacao">

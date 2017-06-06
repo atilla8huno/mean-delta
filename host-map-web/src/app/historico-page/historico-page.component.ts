@@ -25,7 +25,7 @@ export class HistoricoPageComponent implements OnInit {
     }
 
     consultar(dominio): void {
-        this._router.navigate(['/map', dominio]);
+        this._router.navigate(['/map', dominio, true]);
     }
 
     excluir(localizacao): void {
